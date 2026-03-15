@@ -30,7 +30,7 @@ def _send_anomaly_alert_sync(dataset_name: str, anomaly_count: int) -> None:
     settings = settings_manager.get_email_settings(include_password=True)
     sender_email = settings.get("sender_email", "").strip() or os.getenv("SENDER_EMAIL", "").strip()
     sender_password = settings.get("sender_password", "") or os.getenv("SENDER_PASSWORD", "").strip()
-    receiver_email = settings.get("receiver_email", "").strip()
+    receiver_email = settings.get("receiver_email", "").strip() or os.getenv("RECEIVER_EMAIL", "").strip()
 
     if not sender_email or not sender_password or not receiver_email:
         print("Email alert configuration not set.")
