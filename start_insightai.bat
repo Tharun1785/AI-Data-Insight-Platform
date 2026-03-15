@@ -21,4 +21,4 @@ if not exist ".venv\Scripts\python.exe" (
 
 call .venv\Scripts\activate.bat || exit /b 1
 python -m pip install -r requirements.txt || exit /b 1
-python -m uvicorn backend.main:app --host 127.0.0.1 --port 8000
+python -m uvicorn backend.main:app --host 127.0.0.1 --port 8001

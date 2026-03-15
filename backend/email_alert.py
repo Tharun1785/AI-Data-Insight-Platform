@@ -28,9 +28,9 @@ def send_anomaly_alert(dataset_name: str, anomaly_count: int) -> None:
 
 def _send_anomaly_alert_sync(dataset_name: str, anomaly_count: int) -> None:
     settings = settings_manager.get_email_settings(include_password=True)
-    sender_email = settings.get("sender_email", "").strip() or os.getenv("SENDER_EMAIL", "").strip()
-    sender_password = settings.get("sender_password", "") or os.getenv("SENDER_PASSWORD", "").strip()
-    receiver_email = settings.get("receiver_email", "").strip() or os.getenv("RECEIVER_EMAIL", "").strip()
+    sender_email = settings.get("sender_email") or os.getenv("SENDER_EMAIL")
+    sender_password = settings.get("sender_password") or os.getenv("SENDER_PASSWORD")
+    receiver_email = settings.get("receiver_email") or os.getenv("RECEIVER_EMAIL")
 
     if not sender_email or not sender_password or not receiver_email:
         print("Email alert configuration not set.")
@@ -63,7 +63,7 @@ def _send_anomaly_alert_sync(dataset_name: str, anomaly_count: int) -> None:
             server.login(sender_email, sender_password)
             server.sendmail(sender_email, [receiver_email], message.as_string())
     except Exception as exc:
-        print("Email alert failed:", exc)
+        print("Email alert failed:", str(exc))
 
 
 class EmailAlert:

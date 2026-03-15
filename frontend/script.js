@@ -43,6 +43,34 @@ document.addEventListener("DOMContentLoaded", async () => {
     updateDatasetStatus(state.summary);
     renderRefreshNotice(sessionState.wasReloadReset);
 
+    // Add navbar
+    const navbar = document.createElement('nav');
+    navbar.className = 'navbar';
+    const pageTitle = document.body.dataset.page;
+    const displayTitle = pageTitle ? pageTitle.charAt(0).toUpperCase() + pageTitle.slice(1).replace('-', ' ') : 'Home';
+    navbar.innerHTML = `
+        <div class="navbar-title">${displayTitle}</div>
+        <div class="navbar-actions">
+            <button class="menu-toggle">☰</button>
+        </div>
+    `;
+    document.body.insertBefore(navbar, document.body.firstChild);
+
+    // Add responsive menu toggle
+    const menuToggle = navbar.querySelector('.menu-toggle');
+    menuToggle.onclick = () => {
+        document.querySelector('.sidebar').classList.toggle('active');
+        document.querySelector('.sidebar-overlay').classList.toggle('active');
+    };
+
+    const overlay = document.createElement('div');
+    overlay.className = 'sidebar-overlay';
+    overlay.onclick = () => {
+        document.querySelector('.sidebar').classList.remove('active');
+        overlay.classList.remove('active');
+    };
+    document.body.appendChild(overlay);
+
     switch (page) {
         case "home":
             initHomePage();
@@ -281,6 +309,16 @@ function initUploadPage() {
 }
 
 async function initDashboardPage() {
+    let anomalyCount = 0;
+    if (state.summary) {
+        try {
+            const anomalyPayload = await fetchJson("/anomalies");
+            anomalyCount = anomalyPayload && typeof anomalyPayload.anomaly_count === "number" ? anomalyPayload.anomaly_count : 0;
+        } catch (error) {
+            // Ignore, use 0
+        }
+    }
+    renderDashboardStats(state.summary, anomalyCount);
     renderSummaryCards(state.summary);
     updateDownloadButton(Boolean(state.summary), "download-anomalies-button", "/download-anomalies");
 
@@ -557,6 +595,36 @@ function renderSummaryCards(summary) {
         createSummaryCard("Numeric Columns", numeric),
         createSummaryCard("Categorical Columns", categorical),
     ].join("");
+}
+
+function renderDashboardStats(summary, anomalyCount = 0) {
+    const container = document.getElementById("dashboard-stats");
+    if (!container) {
+        return;
+    }
+
+    const rows = summary ? formatNumber(summary.rows) : "0";
+    const columns = summary ? formatNumber(summary.columns) : "0";
+    const numeric = summary ? formatNumber(summary.column_types.numeric.length) : "0";
+    const categorical = summary ? formatNumber(summary.column_types.categorical.length) : "0";
+    const anomalies = formatNumber(anomalyCount);
+
+    container.innerHTML = [
+        createStatCard("Rows", rows),
+        createStatCard("Columns", columns),
+        createStatCard("Numeric Columns", numeric),
+        createStatCard("Categorical Columns", categorical),
+        createStatCard("Anomalies Detected", anomalies),
+    ].join("");
+}
+
+function createStatCard(title, value) {
+    return `
+        <div class="stat-card">
+            <div class="stat-title">${escapeHtml(title)}</div>
+            <div class="stat-value">${escapeHtml(String(value))}</div>
+        </div>
+    `;
 }
 
 function createSummaryCard(label, value) {
