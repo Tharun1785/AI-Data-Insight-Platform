@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Data Insight Platform | Data Analysis</title>
+    <link rel="stylesheet" href="/frontend/styles.css">
+</head>
+<body data-page="analysis">
+    <div class="app-shell">
+        <aside class="sidebar">
+            <a class="brand" href="/">AI Data Insight Platform</a>
+            <nav class="sidebar-nav">
+                <a href="/">Home</a>
+                <a href="/upload-page">Upload Dataset</a>
+                <a href="/dashboard-page">Dashboard</a>
+                <a class="active" href="/analysis-page">Data Analysis</a>
+                <a href="/chat-page">AI Chat</a>
+                <a href="/report-page">Report</a>
+                <a href="/email-settings-page">Email Settings</a>
+            </nav>
+        </aside>
+
+        <main class="page-main">
+            <div id="page-notice" class="status-banner hidden"></div>
+
+            <section class="page-header">
+                <p class="page-label">Data Analysis</p>
+                <h1>Data Analysis</h1>
+                <p class="page-subtitle">Simple explanations to help you understand the dataset.</p>
+                <div id="dataset-status" class="status-pill">No dataset uploaded</div>
+            </section>
+
+            <div id="analysis-loader" class="loader-panel hidden"></div>
+
+            <section class="panel">
+                <h2 class="section-title">Dataset Overview</h2>
+                <div id="analysis-overview" class="info-list"></div>
+            </section>
+
+            <section class="panel">
+                <h2 class="section-title">Statistics Explanation</h2>
+                <div id="analysis-statistics" class="info-list"></div>
+            </section>
+
+            <section class="panel">
+                <h2 class="section-title">Trend Observations</h2>
+                <div id="analysis-trends" class="info-list"></div>
+            </section>
+
+            <section class="panel">
+                <h2 class="section-title">Anomaly Explanation</h2>
+                <div id="analysis-anomalies" class="info-list"></div>
+            </section>
+        </main>
+    </div>
+    <script src="/frontend/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Data Insight Platform | Report</title>
+    <link rel="stylesheet" href="/frontend/styles.css">
+</head>
+<body data-page="report">
+    <div class="app-shell">
+        <aside class="sidebar">
+            <a class="brand" href="/">AI Data Insight Platform</a>
+            <nav class="sidebar-nav">
+                <a href="/">Home</a>
+                <a href="/upload-page">Upload Dataset</a>
+                <a href="/dashboard-page">Dashboard</a>
+                <a href="/analysis-page">Data Analysis</a>
+                <a href="/chat-page">AI Chat</a>
+                <a class="active" href="/report-page">Report</a>
+                <a href="/email-settings-page">Email Settings</a>
+            </nav>
+        </aside>
+
+        <main class="page-main">
+            <div id="page-notice" class="status-banner hidden"></div>
+
+            <section class="page-header">
+                <p class="page-label">Report</p>
+                <h1>Download Analysis Report</h1>
+                <p class="page-subtitle">Download a PDF report with the most important results from the dataset.</p>
+                <div id="dataset-status" class="status-pill">No dataset uploaded</div>
+            </section>
+
+            <section class="panel">
+                <h2 class="section-title">Report contents</h2>
+                <ul class="simple-list">
+                    <li>Dataset overview</li>
+                    <li>Statistics</li>
+                    <li>Charts</li>
+                    <li>Anomaly detection</li>
+                    <li>AI explanations</li>
+                </ul>
+                <div class="button-row">
+                    <a id="download-report-button" class="button button-primary" href="/download-report">Download Report</a>
+                </div>
+            </section>
+
+            <section class="panel">
+                <h2 class="section-title">Download Anomaly Dataset</h2>
+                <p class="section-text">Download the dataset rows that were detected as anomalies during analysis.</p>
+                <div class="button-row">
+                    <button type="button" id="download-anomaly-excel-button" onclick="downloadAnomalyExcel()" class="button button-secondary">Download Anomaly Dataset (Excel)</button>
+                </div>
+            </section>
+
+            <section class="panel">
+                <h2 class="section-title">Current dataset</h2>
+                <div id="report-details" class="info-list"></div>
+            </section>
+        </main>
+    </div>
+    <script src="/frontend/script.js"></script>
+    <script>
+        function downloadAnomalyExcel() {
+            const button = document.getElementById("download-anomaly-excel-button");
+            if (button && button.getAttribute("aria-disabled") === "true") {
+                return;
+            }
+            window.location.href = "/download-anomaly-excel";
+        }
+    </script>
+</body>
+</html>

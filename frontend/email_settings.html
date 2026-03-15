@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Data Insight Platform | Email Settings</title>
+    <link rel="stylesheet" href="/frontend/styles.css">
+</head>
+<body data-page="email-settings">
+    <div class="app-shell">
+        <aside class="sidebar">
+            <a class="brand" href="/">AI Data Insight Platform</a>
+            <nav class="sidebar-nav">
+                <a href="/">Home</a>
+                <a href="/upload-page">Upload Dataset</a>
+                <a href="/dashboard-page">Dashboard</a>
+                <a href="/analysis-page">Data Analysis</a>
+                <a href="/chat-page">AI Chat</a>
+                <a href="/report-page">Report</a>
+                <a class="active" href="/email-settings-page">Email Settings</a>
+            </nav>
+        </aside>
+
+        <main class="page-main">
+            <div id="page-notice" class="status-banner hidden"></div>
+
+            <section class="page-header">
+                <p class="page-label">Email Settings</p>
+                <h1>Email Settings</h1>
+                <p class="page-subtitle">Save the email settings used for anomaly notifications.</p>
+                <div id="dataset-status" class="status-pill">No dataset uploaded</div>
+            </section>
+
+            <section class="panel">
+                <form id="email-settings-form" class="settings-form">
+                    <div class="form-field">
+                        <label for="sender-email">Sender Email</label>
+                        <input id="sender-email" class="text-input" type="email" placeholder="Enter Gmail used to send alerts" autocomplete="email">
+                    </div>
+                    <div class="form-field">
+                        <label for="sender-password">App Password</label>
+                        <input id="sender-password" class="text-input" type="password" placeholder="Enter Gmail App Password" autocomplete="current-password">
+                    </div>
+                    <div class="form-field">
+                        <label for="email-address">Alert Email Address</label>
+                        <input id="email-address" class="text-input" type="email" placeholder="name@example.com" autocomplete="email">
+                    </div>
+                    <div class="button-row">
+                        <button id="save-email-button" class="button button-primary" type="submit">Save Email</button>
+                    </div>
+                </form>
+                <div id="email-settings-status" class="status-message">Loading email settings...</div>
+            </section>
+        </main>
+    </div>
+    <script src="/frontend/script.js"></script>
+</body>
+</html>

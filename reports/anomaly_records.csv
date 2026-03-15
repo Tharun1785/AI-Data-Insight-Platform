@@ -1,0 +1,10 @@
+row,anomaly_columns,Invoice ID,Branch,City,Customer type,Gender,Product line,Unit price,Quantity,Tax 5%,Sales,Date,Time,Payment,cogs,gross margin percentage,gross income,Rating
+166,"Sales, Tax 5%, cogs, gross income",234-65-2137,Giza,Naypyitaw,Normal,Male,Home and lifestyle,95.58,10,47.79,1003.59,2019-01-16,2026-03-12 13:32:00,Cash,955.8,4.761904762,47.79,4.8
+167,"Sales, Tax 5%, cogs, gross income",687-47-8271,Alex,Yangon,Normal,Male,Fashion accessories,98.98,10,49.49,1039.29,2019-02-08,2026-03-12 16:20:00,Credit card,989.8,4.761904762,49.49,8.7
+350,"Sales, Tax 5%, cogs, gross income",860-79-0874,Giza,Naypyitaw,Member,Female,Fashion accessories,99.3,10,49.65,1042.65,2019-02-15,2026-03-12 14:53:00,Credit card,993.0,4.761904762,49.65,6.6
+357,"Sales, Tax 5%, cogs, gross income",554-42-2417,Giza,Naypyitaw,Normal,Female,Sports and travel,95.44,10,47.72,1002.12,2019-01-09,2026-03-12 13:45:00,Cash,954.4,4.761904762,47.72,5.2
+422,"Sales, Tax 5%, cogs, gross income",271-88-8734,Giza,Naypyitaw,Member,Female,Fashion accessories,97.21,10,48.605,1020.705,2019-02-08,2026-03-12 13:00:00,Credit card,972.1,4.761904762,48.605,8.7
+557,"Sales, Tax 5%, cogs, gross income",283-26-5248,Giza,Naypyitaw,Member,Female,Food and beverages,98.52,10,49.26,1034.46,2019-01-30,2026-03-12 20:23:00,Ewallet,985.2,4.761904762,49.26,4.5
+699,"Sales, Tax 5%, cogs, gross income",751-41-9720,Giza,Naypyitaw,Normal,Male,Home and lifestyle,97.5,10,48.75,1023.75,2019-01-12,2026-03-12 16:18:00,Ewallet,975.0,4.761904762,48.75,8.0
+792,"Sales, Tax 5%, cogs, gross income",744-16-7898,Cairo,Mandalay,Normal,Female,Home and lifestyle,97.37,10,48.685,1022.385,2019-01-15,2026-03-12 13:48:00,Credit card,973.7,4.761904762,48.685,4.9
+996,"Sales, Tax 5%, cogs, gross income",303-96-2227,Cairo,Mandalay,Normal,Female,Home and lifestyle,97.38,10,48.69,1022.49,2019-03-02,2026-03-12 17:16:00,Ewallet,973.8,4.761904762,48.69,4.4

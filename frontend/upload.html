@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Data Insight Platform | Upload Dataset</title>
+    <link rel="stylesheet" href="/frontend/styles.css">
+</head>
+<body data-page="upload">
+    <div class="app-shell">
+        <aside class="sidebar">
+            <a class="brand" href="/">AI Data Insight Platform</a>
+            <nav class="sidebar-nav">
+                <a href="/">Home</a>
+                <a class="active" href="/upload-page">Upload Dataset</a>
+                <a href="/dashboard-page">Dashboard</a>
+                <a href="/analysis-page">Data Analysis</a>
+                <a href="/chat-page">AI Chat</a>
+                <a href="/report-page">Report</a>
+                <a href="/email-settings-page">Email Settings</a>
+            </nav>
+        </aside>
+
+        <main class="page-main">
+            <div id="page-notice" class="status-banner hidden"></div>
+
+            <section class="page-header">
+                <p class="page-label">Upload Dataset</p>
+                <h1>Upload Dataset</h1>
+                <p class="page-subtitle">Upload a CSV or Excel file to start the analysis.</p>
+                <div id="dataset-status" class="status-pill">No dataset uploaded</div>
+            </section>
+
+            <section class="panel">
+                <form id="upload-form" class="upload-form">
+                    <div class="form-field">
+                        <label for="dataset-file">Choose dataset file</label>
+                        <input id="dataset-file" class="file-input" type="file" accept=".csv,.xlsx" required>
+                    </div>
+
+                    <label id="dropzone" class="dropzone" for="dataset-file">
+                        <strong>Drag and drop your dataset here</strong>
+                        <span>CSV (.csv) and Excel (.xlsx) files are supported.</span>
+                        <span id="selected-file">No file selected</span>
+                    </label>
+
+                    <div class="button-row">
+                        <button id="upload-button" class="button button-primary" type="submit">Upload Dataset</button>
+                    </div>
+                </form>
+
+                <div id="upload-status" class="status-message"></div>
+                <div id="upload-loader" class="loader-panel hidden"></div>
+            </section>
+
+            <section class="panel">
+                <h2 class="section-title">Dataset preview</h2>
+                <div id="preview-table" class="table-wrap empty-state">Upload a dataset to preview the first 10 rows.</div>
+            </section>
+        </main>
+    </div>
+    <script src="/frontend/script.js"></script>
+</body>
+</html>

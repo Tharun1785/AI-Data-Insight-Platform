@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Data Insight Platform | AI Chat</title>
+    <link rel="stylesheet" href="/frontend/styles.css">
+</head>
+<body data-page="chat">
+    <div class="app-shell">
+        <aside class="sidebar">
+            <a class="brand" href="/">AI Data Insight Platform</a>
+            <nav class="sidebar-nav">
+                <a href="/">Home</a>
+                <a href="/upload-page">Upload Dataset</a>
+                <a href="/dashboard-page">Dashboard</a>
+                <a href="/analysis-page">Data Analysis</a>
+                <a class="active" href="/chat-page">AI Chat</a>
+                <a href="/report-page">Report</a>
+                <a href="/email-settings-page">Email Settings</a>
+            </nav>
+        </aside>
+
+        <main class="page-main">
+            <div id="page-notice" class="status-banner hidden"></div>
+
+            <section class="page-header">
+                <p class="page-label">AI Chat</p>
+                <h1>Ask Questions About Your Data</h1>
+                <p class="page-subtitle">Use a suggested question or type your own question.</p>
+                <div id="dataset-status" class="status-pill">No dataset uploaded</div>
+            </section>
+
+            <section class="panel">
+                <h2 class="section-title">Suggested questions</h2>
+                <div id="suggested-questions" class="chips"></div>
+            </section>
+
+            <section class="panel chat-panel">
+                <div id="chat-history" class="chat-history"></div>
+                <form id="chat-form" class="chat-form">
+                    <input id="chat-question" class="text-input" type="text" placeholder="Type your question" required>
+                    <button id="chat-submit" class="button button-primary" type="submit">Ask</button>
+                </form>
+            </section>
+        </main>
+    </div>
+    <script src="/frontend/script.js"></script>
+</body>
+</html>

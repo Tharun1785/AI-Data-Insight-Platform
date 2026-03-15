@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Data Insight Platform | Dashboard</title>
+    <link rel="stylesheet" href="/frontend/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body data-page="dashboard">
+    <div class="app-shell">
+        <aside class="sidebar">
+            <a class="brand" href="/">AI Data Insight Platform</a>
+            <nav class="sidebar-nav">
+                <a href="/">Home</a>
+                <a href="/upload-page">Upload Dataset</a>
+                <a class="active" href="/dashboard-page">Dashboard</a>
+                <a href="/analysis-page">Data Analysis</a>
+                <a href="/chat-page">AI Chat</a>
+                <a href="/report-page">Report</a>
+                <a href="/email-settings-page">Email Settings</a>
+            </nav>
+        </aside>
+
+        <main class="page-main">
+            <div id="page-notice" class="status-banner hidden"></div>
+
+            <section class="page-header">
+                <p class="page-label">Dashboard</p>
+                <h1>Dashboard</h1>
+                <p class="page-subtitle">A simple view of the most important information in your dataset.</p>
+                <div id="dataset-status" class="status-pill">No dataset uploaded</div>
+            </section>
+
+            <div id="dashboard-loader" class="loader-panel hidden"></div>
+
+            <section id="dashboard-summary-cards" class="summary-grid"></section>
+
+            <section class="panel">
+                <h2 class="section-title">Charts</h2>
+                <p class="section-text">The dashboard shows only the three most useful charts: bar, line, and pie.</p>
+                <div id="charts-grid" class="charts-grid"></div>
+            </section>
+
+            <section class="panel">
+                <h2 class="section-title">Key Insights</h2>
+                <p class="section-text">These short insights summarize the most important business patterns found in the dataset.</p>
+                <div id="key-insights-list" class="info-list">
+                    <div class="info-item">Upload a dataset to see key insights.</div>
+                </div>
+            </section>
+
+            <section class="panel">
+                <h2 class="section-title">Future Trend Prediction</h2>
+                <p id="forecast-summary" class="section-text">Upload a dataset with a date column to view the next predicted values.</p>
+                <div id="forecast-chart-area" class="empty-state">Future trend prediction will appear here after dataset upload.</div>
+            </section>
+
+            <section class="panel">
+                <div class="section-header-row">
+                    <div>
+                        <h2 class="section-title">Anomaly Detection</h2>
+                        <p id="anomaly-count" class="section-text">No anomaly results available yet.</p>
+                    </div>
+                    <a id="download-anomalies-button" class="button button-secondary" href="/download-anomalies">Download anomaly records</a>
+                </div>
+                <div id="anomaly-table" class="table-wrap empty-state">Upload a dataset to view anomaly detection results.</div>
+            </section>
+        </main>
+    </div>
+    <script src="/frontend/script.js?v=20260315-dashboard"></script>
+</body>
+</html>
+

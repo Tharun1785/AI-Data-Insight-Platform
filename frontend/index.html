@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Data Insight Platform | Home</title>
+    <link rel="stylesheet" href="/frontend/styles.css">
+</head>
+<body data-page="home">
+    <div class="app-shell">
+        <aside class="sidebar">
+            <a class="brand" href="/">AI Data Insight Platform</a>
+            <nav class="sidebar-nav">
+                <a class="active" href="/">Home</a>
+                <a href="/upload-page">Upload Dataset</a>
+                <a href="/dashboard-page">Dashboard</a>
+                <a href="/analysis-page">Data Analysis</a>
+                <a href="/chat-page">AI Chat</a>
+                <a href="/report-page">Report</a>
+                <a href="/email-settings-page">Email Settings</a>
+            </nav>
+        </aside>
+
+        <main class="page-main">
+            <div id="page-notice" class="status-banner hidden"></div>
+
+            <section class="page-header">
+                <p class="page-label">Home</p>
+                <h1>AI Data Insight Platform</h1>
+                <p class="page-subtitle">Upload a dataset and understand your data easily.</p>
+                <div id="dataset-status" class="status-pill">No dataset uploaded</div>
+            </section>
+
+            <section class="panel">
+                <p class="lead-text">This platform analyzes structured datasets and automatically generates statistics, charts, anomaly alerts, and insights to help users understand their data.</p>
+                <div class="button-row">
+                    <a class="button button-primary" href="/upload-page">Upload Dataset</a>
+                    <a class="button button-secondary" href="/dashboard-page">Open Dashboard</a>
+                </div>
+            </section>
+
+            <section class="content-grid">
+                <article class="panel">
+                    <h2 class="section-title">Accepted datasets</h2>
+                    <ul class="simple-list">
+                        <li>CSV files (.csv)</li>
+                        <li>Excel files (.xlsx)</li>
+                        <li>Datasets must contain rows and columns.</li>
+                    </ul>
+                </article>
+
+                <article class="panel">
+                    <h2 class="section-title">How the system works</h2>
+                    <ol class="steps-list">
+                        <li>Upload dataset</li>
+                        <li>System cleans the data</li>
+                        <li>Statistics and charts are generated</li>
+                        <li>Anomalies are detected</li>
+                        <li>Users can ask questions</li>
+                        <li>Report can be downloaded</li>
+                    </ol>
+                </article>
+            </section>
+
+            <section class="panel">
+                <h2 class="section-title">Current session</h2>
+                <div id="home-session-status" class="info-text">No dataset is loaded yet. Upload a CSV or XLSX file to begin.</div>
+            </section>
+        </main>
+    </div>
+    <script src="/frontend/script.js"></script>
+</body>
+</html>

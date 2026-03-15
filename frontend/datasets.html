@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InsightAI | Dataset History</title>
+    <link rel="stylesheet" href="/frontend/styles.css">
+</head>
+<body data-page="datasets">
+    <div class="app-shell">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-mark">IA</div>
+                <div>
+                    <h1>InsightAI</h1>
+                    <p>Analytics operating system</p>
+                </div>
+            </div>
+
+            <nav class="nav-links">
+                <a href="/"><span class="nav-icon">01</span><span>Home</span></a>
+                <a href="/upload-page"><span class="nav-icon">02</span><span>Upload Dataset</span></a>
+                <a href="/dashboard-page"><span class="nav-icon">03</span><span>Dashboard</span></a>
+                <a href="/insights-page"><span class="nav-icon">04</span><span>Insights</span></a>
+                <a href="/chat-page"><span class="nav-icon">05</span><span>AI Chat</span></a>
+                <a class="active" href="/datasets-page"><span class="nav-icon">06</span><span>Datasets</span></a>
+                <a href="/report-page"><span class="nav-icon">07</span><span>Reports</span></a>
+            </nav>
+
+            <div class="sidebar-promo section-reveal">
+                <p class="sidebar-label">Dataset memory</p>
+                <strong>Jump back into previous uploads anytime</strong>
+                <span>Use the history page to review upload metadata and reopen an older dashboard with one click.</span>
+            </div>
+        </aside>
+
+        <div class="workspace">
+            <header class="topbar">
+                <div class="topbar-copy">
+                    <p class="topbar-kicker">Dataset History</p>
+                    <h2>Browse past uploads and reopen earlier analytics views</h2>
+                </div>
+                <div class="topbar-actions">
+                    <div class="topbar-badge" id="dataset-pill">No dataset loaded</div>
+                    <a class="button button-secondary" href="/upload-page">Upload another file</a>
+                </div>
+            </header>
+
+            <main class="content">
+                <div id="history-loading-banner" class="loading-inline-banner hidden" aria-live="polite"></div>
+
+                <section class="stats-grid section-reveal" id="history-metrics">
+                    <article class="stat-card">
+                        <p>Total uploads</p>
+                        <h3>0</h3>
+                        <span class="stat-trend">No datasets tracked yet</span>
+                    </article>
+                    <article class="stat-card">
+                        <p>Tracked rows</p>
+                        <h3>0</h3>
+                        <span class="stat-trend">Across all uploads</span>
+                    </article>
+                    <article class="stat-card">
+                        <p>Active dataset</p>
+                        <h3>None</h3>
+                        <span class="stat-trend">Select a dataset to reopen its dashboard</span>
+                    </article>
+                </section>
+
+                <section class="panel section-reveal">
+                    <div class="panel-header">
+                        <div>
+                            <span class="eyebrow">History log</span>
+                            <h3>Uploaded datasets</h3>
+                        </div>
+                    </div>
+                    <div id="dataset-history-list" class="history-grid"></div>
+                </section>
+            </main>
+        </div>
+    </div>
+    <script src="/frontend/script.js"></script>
+</body>
+</html>

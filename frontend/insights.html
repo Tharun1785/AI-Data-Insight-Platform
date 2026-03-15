@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InsightAI | Insights</title>
+    <link rel="stylesheet" href="/frontend/styles.css">
+</head>
+<body data-page="insights">
+    <div class="app-shell">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-mark">IA</div>
+                <div>
+                    <h1>InsightAI</h1>
+                    <p>Analytics operating system</p>
+                </div>
+            </div>
+
+            <nav class="nav-links">
+                <a href="/"><span class="nav-icon">01</span><span>Home</span></a>
+                <a href="/upload-page"><span class="nav-icon">02</span><span>Upload Dataset</span></a>
+                <a href="/dashboard-page"><span class="nav-icon">03</span><span>Dashboard</span></a>
+                <a class="active" href="/insights-page"><span class="nav-icon">04</span><span>Insights</span></a>
+                <a href="/chat-page"><span class="nav-icon">05</span><span>AI Chat</span></a>
+                <a href="/datasets-page"><span class="nav-icon">06</span><span>Datasets</span></a>
+                <a href="/report-page"><span class="nav-icon">07</span><span>Reports</span></a>
+            </nav>
+
+            <div class="sidebar-promo section-reveal">
+                <p class="sidebar-label">Insight layers</p>
+                <strong>Turn rows into highlights, trends, and signals</strong>
+                <span>This page combines a summary, business highlights, time-series trends, and correlation signals from the active dataset.</span>
+            </div>
+        </aside>
+
+        <div class="workspace">
+            <header class="topbar">
+                <div class="topbar-copy">
+                    <p class="topbar-kicker">Insight Engine</p>
+                    <h2>Structured AI analysis for your latest dataset</h2>
+                </div>
+                <div class="topbar-actions">
+                    <div class="topbar-badge" id="dataset-pill">No dataset loaded</div>
+                    <a class="button button-secondary" href="/chat-page">Open chat</a>
+                </div>
+            </header>
+
+                        <main class="content">
+                <div id="insights-loading-banner" class="loading-inline-banner hidden" aria-live="polite"></div>
+                <section class="panel section-reveal panel-accent">
+                    <div class="panel-header">
+                        <div>
+                            <span class="eyebrow">Executive summary</span>
+                            <h3>AI-generated summary</h3>
+                        </div>
+                    </div>
+                    <div id="insight-narrative" class="narrative-card large"></div>
+                </section>
+
+                <section class="feature-grid section-reveal">
+                    <article class="panel compact-panel insight-column">
+                        <span class="eyebrow neutral">Highlights</span>
+                        <h3>What stands out</h3>
+                        <ul id="highlight-list" class="insight-list"></ul>
+                    </article>
+                    <article class="panel compact-panel insight-column">
+                        <span class="eyebrow neutral">Trends</span>
+                        <h3>Directional signals</h3>
+                        <ul id="trend-list" class="insight-list"></ul>
+                    </article>
+                    <article class="panel compact-panel insight-column">
+                        <span class="eyebrow neutral">Correlations</span>
+                        <h3>Relationships in the data</h3>
+                        <ul id="correlation-list" class="insight-list"></ul>
+                    </article>
+                </section>
+
+                <section class="panel compact-panel section-reveal">
+                    <span class="eyebrow">Suggested next step</span>
+                    <h3>Take the narrative into the chat assistant</h3>
+                    <p class="muted-copy">Use the assistant to ask follow-up questions about averages, leaders, correlations, and row-level summaries.</p>
+                    <a class="button button-primary" href="/chat-page">Ask InsightAI</a>
+                </section>
+            </main>
+        </div>
+    </div>
+    <script src="/frontend/script.js"></script>
+</body>
+</html>
+
+
+
