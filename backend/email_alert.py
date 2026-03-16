@@ -10,7 +10,7 @@ from backend.settings_manager import SettingsManager
 
 
 SMTP_SERVER = "smtp.gmail.com"
-SMTP_PORT = 587
+SMTP_PORT = 465
 settings_manager = SettingsManager()
 
 
@@ -56,10 +56,7 @@ def _send_anomaly_alert_sync(dataset_name: str, anomaly_count: int) -> None:
     )
 
     try:
-        with smtplib.SMTP(SMTP_SERVER, SMTP_PORT, timeout=20) as server:
-            server.ehlo()
-            server.starttls()
-            server.ehlo()
+        with smtplib.SMTP_SSL(SMTP_SERVER, SMTP_PORT, timeout=20) as server:
             server.login(sender_email, sender_password)
             server.sendmail(sender_email, [receiver_email], message.as_string())
     except Exception as exc:
