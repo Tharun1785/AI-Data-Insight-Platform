@@ -164,6 +164,11 @@ def download_anomaly_excel() -> Any:
 
     try:
         anomaly_path = REPORTS_DIR / "anomaly_dataset.xlsx"
+        
+        # Convert any datetime columns to strings to prevent openpyxl timezone crashes
+        for col in anomaly_dataframe.select_dtypes(include=['datetime', 'datetimetz']).columns:
+            anomaly_dataframe[col] = anomaly_dataframe[col].astype(str)
+            
         anomaly_dataframe.to_excel(anomaly_path, index=False)
         return FileResponse(
             anomaly_path,

@@ -24,9 +24,9 @@ const SUGGESTED_QUESTIONS = [
 ];
 
 if (typeof Chart !== "undefined") {
-    Chart.defaults.font.family = '"Segoe UI", Arial, sans-serif';
-    Chart.defaults.color = "#4b5563";
-    Chart.defaults.borderColor = "#e5e7eb";
+    Chart.defaults.font.family = '"Outfit", "Segoe UI", Arial, sans-serif';
+    Chart.defaults.color = "#475569";
+    Chart.defaults.borderColor = "rgba(203, 213, 225, 0.4)";
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -1047,24 +1047,94 @@ function getChartOptions(type) {
     const options = {
         responsive: true,
         maintainAspectRatio: false,
+        layout: {
+            padding: 10
+        },
         plugins: {
             legend: {
                 display: type === "pie",
                 position: "bottom",
+                labels: {
+                    usePointStyle: true,
+                    padding: 20,
+                    font: {
+                        family: '"Outfit", sans-serif',
+                        size: 13,
+                        weight: '500'
+                    }
+                }
             },
+            tooltip: {
+                backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                titleFont: { family: '"Outfit", sans-serif', size: 14, weight: '600' },
+                bodyFont: { family: '"Outfit", sans-serif', size: 13, weight: '400' },
+                padding: 12,
+                cornerRadius: 8,
+                displayColors: type === 'pie',
+                callbacks: {
+                    label: function(context) {
+                        let label = context.dataset.label || '';
+                        if (label) label += ': ';
+                        if (context.parsed.y !== null) {
+                            label += new Intl.NumberFormat('en-US').format(context.parsed.y);
+                        } else {
+                            label += new Intl.NumberFormat('en-US').format(context.parsed);
+                        }
+                        return label;
+                    }
+                }
+            }
         },
     };
 
     if (type !== "pie") {
+        options.elements = {
+            bar: {
+                borderRadius: 6,
+                borderSkipped: false
+            },
+            line: {
+                tension: 0.4,
+                borderWidth: 3,
+                fill: true
+            },
+            point: {
+                radius: 4,
+                hoverRadius: 6,
+                borderWidth: 2,
+                backgroundColor: '#ffffff'
+            }
+        };
+
         options.scales = {
             x: {
                 ticks: {
                     maxRotation: 35,
                     minRotation: 0,
+                    font: { family: '"Outfit", sans-serif', size: 12 }
                 },
+                grid: {
+                    display: false,
+                    drawBorder: false
+                }
             },
             y: {
                 beginAtZero: true,
+                ticks: {
+                    font: { family: '"Outfit", sans-serif', size: 12 },
+                    callback: function(value) {
+                        if (value >= 1000) return (value / 1000).toFixed(1) + 'k';
+                        return value;
+                    }
+                },
+                grid: {
+                    color: 'rgba(203, 213, 225, 0.4)',
+                    drawBorder: false,
+                    borderDash: [5, 5]
+                },
+                border: {
+                    display: false
+                }
             },
         };
     }

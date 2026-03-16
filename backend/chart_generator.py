@@ -3,6 +3,8 @@ from __future__ import annotations
 from io import BytesIO
 from typing import Any
 
+import matplotlib
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import pandas as pd
 
@@ -262,18 +264,28 @@ class ChartGenerator:
 
         if chart_type == "bar":
             figure, axis = plt.subplots(figsize=(8, 4.5))
-            axis.bar(labels, values, color="#111827")
-            axis.set_title(title)
-            axis.tick_params(axis="x", rotation=20)
-            axis.grid(axis="y", alpha=0.2)
+            axis.bar(labels, values, color="#6366f1", edgecolor="white", linewidth=1.5, alpha=0.85)
+            axis.set_title(title, fontweight="bold", color="#1e293b", pad=10)
+            axis.tick_params(axis="x", rotation=20, colors="#475569")
+            axis.tick_params(axis="y", colors="#475569")
+            axis.grid(axis="y", linestyle="--", alpha=0.3, color="#cbd5e1")
+            for spine in ["top", "right"]:
+                axis.spines[spine].set_visible(False)
+            axis.spines["bottom"].set_color("#cbd5e1")
+            axis.spines["left"].set_color("#cbd5e1")
             return figure
 
         if chart_type == "line":
             figure, axis = plt.subplots(figsize=(8, 4.5))
-            axis.plot(labels, values, color="#111827", marker="o", linewidth=2)
-            axis.set_title(title)
-            axis.tick_params(axis="x", rotation=20)
-            axis.grid(axis="y", alpha=0.2)
+            axis.plot(labels, values, color="#a855f7", marker="o", linewidth=2.5, markersize=6, markerfacecolor="white", markeredgewidth=2)
+            axis.set_title(title, fontweight="bold", color="#1e293b", pad=10)
+            axis.tick_params(axis="x", rotation=20, colors="#475569")
+            axis.tick_params(axis="y", colors="#475569")
+            axis.grid(axis="y", linestyle="--", alpha=0.3, color="#cbd5e1")
+            for spine in ["top", "right"]:
+                axis.spines[spine].set_visible(False)
+            axis.spines["bottom"].set_color("#cbd5e1")
+            axis.spines["left"].set_color("#cbd5e1")
             return figure
 
         if chart_type == "pie":
